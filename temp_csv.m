@@ -25,8 +25,11 @@ fprintf(f,str_prt);
 h = t(2)-t(1);
 
 %  removing t indexed column 
-tempcsv(:,t_index) = []; 
-
+if (kk==t_index)
+  %'nop'   % to handle if t is last variable
+else
+  tempcsv(:,t_index) = []; 
+end
 % adding first column as time 
 tempcsv = [t tempcsv];
 
